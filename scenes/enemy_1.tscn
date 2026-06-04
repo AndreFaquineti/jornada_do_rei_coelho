@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://bsyk1n0atr0d1"]
+
+[ext_resource type="Texture2D" uid="uid://bbe8f2nvaj8pi" path="res://sprites/cenoura1_FRENTE_andando1.png" id="1_jvuks"]
+[ext_resource type="Script" uid="uid://b2a00uubtd0h0" path="res://scripts/enemy_1.gd" id="1_tcrox"]
+[ext_resource type="Texture2D" uid="uid://dndfrgmh7coai" path="res://sprites/cenoura1_FRENTE_parado.png" id="2_tcrox"]
+[ext_resource type="Texture2D" uid="uid://bpo86w0pi4o" path="res://sprites/cenoura1_FRENTE_andando2.png" id="3_va0nx"]
+[ext_resource type="Texture2D" uid="uid://bm3vb617gmpoh" path="res://sprites/cenoura1_ESQUERDA_andando1.png" id="4_n1sbf"]
+[ext_resource type="Texture2D" uid="uid://dfoc500rvmtda" path="res://sprites/cenoura1_ESQUERDA_andando2.png" id="5_o262f"]
+[ext_resource type="Texture2D" uid="uid://b5xjsp8wgxy3i" path="res://sprites/cenoura1_ESQUERDA_parado.png" id="6_23374"]
+[ext_resource type="Texture2D" uid="uid://c7icvaq0k7wgx" path="res://sprites/cenoura1_DIREITA_andando1.png" id="7_4ume3"]
+[ext_resource type="Texture2D" uid="uid://51enok235u5y" path="res://sprites/cenoura1_DIREITA_andando2.png" id="8_k5ap6"]
+[ext_resource type="Texture2D" uid="uid://cun6qggktpjcq" path="res://sprites/cenoura1_DIREITA_parado.png" id="9_eb5of"]
+[ext_resource type="Texture2D" uid="uid://snkbq08fsncw" path="res://sprites/cenoura1_COSTAS_andando1.png" id="10_up3er"]
+[ext_resource type="Texture2D" uid="uid://b86dsbyfdgwl2" path="res://sprites/cenoura1_COSTAS_parado.png" id="11_4s5yk"]
+[ext_resource type="Texture2D" uid="uid://byln8tlagndwo" path="res://sprites/cenoura1_COSTAS_andando2.png" id="12_if6mg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yxwnd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jvuks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tcrox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_va0nx")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_n1sbf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_o262f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_23374")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_4ume3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_k5ap6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_eb5of")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_up3er")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_4s5yk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_if6mg")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umrl8"]
+size = Vector2(14, 14)
+
+[node name="enemy1" type="CharacterBody2D" unique_id=1425868315]
+script = ExtResource("1_tcrox")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1216123941]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_yxwnd")
+animation = &"up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=954235085]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_umrl8")

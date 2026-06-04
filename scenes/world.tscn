@@ -1,7 +1,8 @@
 [gd_scene format=4 uid="uid://mxyghi5hrcnw"]
 
 [ext_resource type="Texture2D" uid="uid://rpcwwo2dv328" path="res://tiles/overworld.png" id="1_4wyf3"]
-[ext_resource type="Texture2D" uid="uid://b3dp776eud5mi" path="res://tiles/moita.png" id="2_4wyf3"]
+[ext_resource type="Texture2D" uid="uid://0s3om4nkohcs" path="res://tiles/moita.png" id="2_4wyf3"]
+[ext_resource type="PackedScene" uid="uid://bsyk1n0atr0d1" path="res://scenes/enemy_1.tscn" id="4_71j4m"]
 [ext_resource type="PackedScene" uid="uid://bglod58d8cf4l" path="res://scenes/player.tscn" id="4_k0juu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qfnet"]
@@ -181,8 +182,11 @@ texture = ExtResource("1_4wyf3")
 16:8/0 = 0
 17:8/0 = 0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4wyf3"]
+load_path = "res://.godot/imported/moita.png-8b800bccd100e02497cea3e70e130d14.ctex"
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_71j4m"]
-texture = ExtResource("2_4wyf3")
+texture = SubResource("CompressedTexture2D_4wyf3")
 margins = Vector2i(0, 7)
 0:0/0 = 0
 1:0/0 = 0
@@ -194,11 +198,9 @@ sources/1 = SubResource("TileSetAtlasSource_71j4m")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k0juu"]
 texture = ExtResource("2_4wyf3")
-margins = Vector2i(0, 8)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8, -8, -8, 8, -8)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4wyf3"]
 texture = ExtResource("1_4wyf3")
@@ -379,8 +381,8 @@ texture = ExtResource("1_4wyf3")
 
 [sub_resource type="TileSet" id="TileSet_71j4m"]
 physics_layer_0/collision_layer = 1
-sources/2 = SubResource("TileSetAtlasSource_k0juu")
 sources/3 = SubResource("TileSetAtlasSource_4wyf3")
+sources/2 = SubResource("TileSetAtlasSource_k0juu")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i7141"]
 texture = ExtResource("1_4wyf3")
@@ -585,5 +587,8 @@ tile_map_data = PackedByteArray("AAAAAAkAAAABAAEAAAAAAAgAAAABAAEAAAAAAAcAAAABAAE
 tile_set = SubResource("TileSet_4mrxx")
 
 [node name="player" parent="." unique_id=751831201 instance=ExtResource("4_k0juu")]
-position = Vector2(480, 232)
+position = Vector2(576, 336)
 scale = Vector2(3, 3)
+
+[node name="enemy1" parent="." unique_id=1425868315 instance=ExtResource("4_71j4m")]
+position = Vector2(392, 536)
