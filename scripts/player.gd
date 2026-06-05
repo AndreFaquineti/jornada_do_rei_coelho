@@ -14,13 +14,10 @@ func _physics_process(delta):
 
 	if Input.is_action_pressed("right"):
 		direction.x += 1
-
 	if Input.is_action_pressed("left"):
 		direction.x -= 1
-
 	if Input.is_action_pressed("down"):
 		direction.y += 1
-
 	if Input.is_action_pressed("up"):
 		direction.y -= 1
 
@@ -52,30 +49,28 @@ func _physics_process(delta):
 
 	elif direction.y < 0:
 		body.play("up")
-	
-	
 
 func controlar_tiro():
 
+	if not pode_atirar:
+		return
+
+	var direcao_tiro = Vector2.ZERO
+
+	# Checa cada tecla independentemente (sem elif!)
 	if Input.is_key_pressed(KEY_RIGHT):
+		direcao_tiro.x += 1
+	if Input.is_key_pressed(KEY_LEFT):
+		direcao_tiro.x -= 1
+	if Input.is_key_pressed(KEY_UP):
+		direcao_tiro.y -= 1
+	if Input.is_key_pressed(KEY_DOWN):
+		direcao_tiro.y += 1
 
-		if pode_atirar:
-			atirar(Vector2.RIGHT)
-
-	elif Input.is_key_pressed(KEY_LEFT):
-
-		if pode_atirar:
-			atirar(Vector2.LEFT)
-
-	elif Input.is_key_pressed(KEY_UP):
-
-		if pode_atirar:
-			atirar(Vector2.UP)
-
-	elif Input.is_key_pressed(KEY_DOWN):
-
-		if pode_atirar:
-			atirar(Vector2.DOWN)
+	# Se apertou alguma tecla de tiro, atira na direção
+	if direcao_tiro != Vector2.ZERO:
+		direcao_tiro = direcao_tiro.normalized()  # evita diagonal mais rápida
+		atirar(direcao_tiro)
 
 
 func atirar(direcao):

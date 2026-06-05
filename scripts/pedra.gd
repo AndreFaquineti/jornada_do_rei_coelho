@@ -1,7 +1,7 @@
 extends Area2D
 
 var direcao = Vector2.ZERO
-var velocidade = 500
+var velocidade = 450
 
 func _process(delta):
 
