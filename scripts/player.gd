@@ -27,37 +27,32 @@ func _physics_process(delta):
 
 	move_and_slide()
 	controlar_tiro()
-	# PARADO
+	# ANIMAÇÕES	
+	## PARADO
 	if direction == Vector2.ZERO:
-
 		feet.play("default")
-
 		return
 
-	# ANDANDO
+	## ANDANDO
 	feet.play("andando")
 
-	# DIREÇÕES
+	## DIREÇÕES
 	if direction.x > 0:
 		body.play("right")
-
 	elif direction.x < 0:
 		body.play("left")
-
 	elif direction.y > 0:
 		body.play("down")
-
 	elif direction.y < 0:
 		body.play("up")
 
 func controlar_tiro():
-
 	if not pode_atirar:
 		return
 
 	var direcao_tiro = Vector2.ZERO
 
-	# Checa cada tecla independentemente (sem elif!)
+	# Checa cada tecla independentemente
 	if Input.is_key_pressed(KEY_RIGHT):
 		direcao_tiro.x += 1
 	if Input.is_key_pressed(KEY_LEFT):
@@ -69,7 +64,7 @@ func controlar_tiro():
 
 	# Se apertou alguma tecla de tiro, atira na direção
 	if direcao_tiro != Vector2.ZERO:
-		direcao_tiro = direcao_tiro.normalized()  # evita diagonal mais rápida
+		direcao_tiro = direcao_tiro.normalized()
 		atirar(direcao_tiro)
 
 
