@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bxxb6q77llm1b"]
+
+[ext_resource type="Script" uid="uid://swd82gdkeqdj" path="res://scripts/gameover.gd" id="1_ncp31"]
+
+[node name="gameover" type="Control" unique_id=610041566]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ncp31")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1771786070]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=957685298]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 200.0
+offset_right = 640.0
+offset_bottom = 240.0
+text = "VOCÊ MORREU"
+horizontal_alignment = 1
+
+[node name="btn_jogardnv" type="Button" parent="." unique_id=498880134]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 272.0
+offset_right = 704.0
+offset_bottom = 303.0
+text = "JOGAR NOVAMENTE"
+
+[node name="btn_voltar" type="Button" parent="." unique_id=520096601]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 312.0
+offset_right = 712.0
+offset_bottom = 343.0
+text = "VOLTAR PARA O MENU PRINCIPAL"
+
+[connection signal="pressed" from="btn_jogardnv" to="." method="_on_btn_jogardnv_pressed"]
+[connection signal="pressed" from="btn_voltar" to="." method="_on_btn_voltar_pressed"]

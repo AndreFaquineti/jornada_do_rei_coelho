@@ -1,10 +1,11 @@
 extends CharacterBody2D
 
 @export var velocidade = 100
-@export var saude = 1
+var vida = 1;
 
 @onready var player = $"../player"
 @onready var body = $AnimatedSprite2D
+
 
 func _physics_process(delta):
 
@@ -34,18 +35,14 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-func toma_dano(amount = 1):
-	saude -= amount
-	if saude <= 0:
-		inimigo_morre()
 
-func inimigo_morre():
-	# Stop the enemy from moving/AI thinking
-	set_physics_process(false)
-	velocity = Vector2.ZERO
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.has_method("tomar_dano"):
+		body.tomar_dano()
+		
+		
+func tomar_dano():
+	vida -= 1
 
-	# Optional: if you have a "death" animation
-	# body.play("death")
-	# await body.animation_finished
-
-	queue_free()  # Remove the enemy from the scene
+	if vida <= 0: 
+		queue_free()

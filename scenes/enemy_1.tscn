@@ -74,9 +74,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_umrl8"]
-size = Vector2(14, 14)
+size = Vector2(11, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tcrox"]
+size = Vector2(26, 28)
 
 [node name="enemy1" type="CharacterBody2D" unique_id=1425868315]
+collision_layer = 8
 script = ExtResource("1_tcrox")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1216123941]
@@ -84,6 +88,13 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_yxwnd")
 animation = &"up"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=954235085]
+[node name="Collisionenemy" type="CollisionShape2D" parent="." unique_id=954235085]
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_umrl8")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1241426939]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=858138290]
+shape = SubResource("RectangleShape2D_tcrox")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

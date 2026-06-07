@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="jogo"
-run/main_scene="uid://mxyghi5hrcnw"
+run/main_scene="uid://buiv0sgn5hgea"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

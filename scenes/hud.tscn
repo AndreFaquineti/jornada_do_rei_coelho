@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cvgb8dg7x0g30"]
+
+[ext_resource type="Texture2D" uid="uid://clokun5om7dwv" path="res://sprites/coracao_cheio.png" id="1_ahhtf"]
+[ext_resource type="Script" uid="uid://dyo2qliy4uhav" path="res://scripts/hud.gd" id="1_oo0fn"]
+[ext_resource type="Texture2D" uid="uid://bsm7tldnevkar" path="res://sprites/coracao_vazio.png" id="3_5ysmq"]
+
+[node name="HUD" type="Control" unique_id=308204046]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oo0fn")
+heart_full = ExtResource("1_ahhtf")
+heart_empty = ExtResource("3_5ysmq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=614213175]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Heart1" type="TextureRect" parent="HBoxContainer" unique_id=2058455412]
+layout_mode = 2
+texture = ExtResource("1_ahhtf")
+expand_mode = 3
+
+[node name="Heart2" type="TextureRect" parent="HBoxContainer" unique_id=1248099294]
+layout_mode = 2
+texture = ExtResource("1_ahhtf")
+expand_mode = 3
+
+[node name="Heart3" type="TextureRect" parent="HBoxContainer" unique_id=1398791813]
+layout_mode = 2
+texture = ExtResource("1_ahhtf")
+expand_mode = 3

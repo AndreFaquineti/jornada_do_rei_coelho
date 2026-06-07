@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0s3om4nkohcs"
-path="res://.godot/imported/moita.png-8b800bccd100e02497cea3e70e130d14.ctex"
+uid="uid://bsm7tldnevkar"
+path="res://.godot/imported/coracao_vazio.png-a1fd25cdb5905df22578c5bbd05d15de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tiles/moita.png"
-dest_files=["res://.godot/imported/moita.png-8b800bccd100e02497cea3e70e130d14.ctex"]
+source_file="res://sprites/coracao_vazio.png"
+dest_files=["res://.godot/imported/coracao_vazio.png-a1fd25cdb5905df22578c5bbd05d15de.ctex"]
 
 [params]
 

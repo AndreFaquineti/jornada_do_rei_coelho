@@ -121,11 +121,19 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oprun"]
-size = Vector2(12, 16)
+size = Vector2(10, 14)
 
 [node name="player" type="CharacterBody2D" unique_id=751831201]
+collision_mask = 5
 script = ExtResource("1_fjrip")
 pedra_scene = ExtResource("8_smehm")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1187976599]
+position = Vector2(1, 0)
+limit_left = 336
+limit_top = 68
+limit_right = 816
+limit_bottom = 580
 
 [node name="feetSprite2D" type="AnimatedSprite2D" parent="." unique_id=1105965648]
 position = Vector2(1, 7)
