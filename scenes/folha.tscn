@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b724y2o65d77j"]
+
+[ext_resource type="Script" uid="uid://b63ec3jei5ka8" path="res://scripts/folha.gd" id="1_nw65f"]
+[ext_resource type="Texture2D" uid="uid://c3jnfm1hq68j3" path="res://sprites/folha.png" id="2_vah6i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhlvi"]
+size = Vector2(16, 16)
+
+[node name="folha" type="Area2D" unique_id=838461697]
+scale = Vector2(2, 2)
+script = ExtResource("1_nw65f")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2078312289]
+texture = ExtResource("2_vah6i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1995320273]
+shape = SubResource("RectangleShape2D_fhlvi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

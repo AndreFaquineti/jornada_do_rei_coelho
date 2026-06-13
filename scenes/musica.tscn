@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://beqc4cbhkk6lq"]
+
+[ext_resource type="AudioStream" uid="uid://rgyrrhmhyyn7" path="res://tiles/Salto-de-Coelho.mp3.ogg" id="1_wskxf"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" unique_id=343130298]
+stream = ExtResource("1_wskxf")
+volume_db = 2.701
+autoplay = true

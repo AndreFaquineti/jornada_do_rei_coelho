@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://d1odu8jfjixj2"]
 
-[ext_resource type="Script" uid="uid://b2a00uubtd0h0" path="res://scripts/enemy_1.gd" id="1_bgvey"]
+[ext_resource type="Script" uid="uid://b5vgn1f64ffnm" path="res://scripts/enemy3.gd" id="1_bgvey"]
 [ext_resource type="Texture2D" uid="uid://po2lhc07acst" path="res://sprites/cenoura3_FRENTE_andando1.png" id="2_bgvey"]
+[ext_resource type="PackedScene" uid="uid://b724y2o65d77j" path="res://scenes/folha.tscn" id="2_f8njh"]
 [ext_resource type="Texture2D" uid="uid://b81kxa7mbyvdu" path="res://sprites/cenoura3_FRENTE_parado.png" id="3_f8njh"]
 [ext_resource type="Texture2D" uid="uid://x3jpqqofwt87" path="res://sprites/cenoura3_FRENTE_andando2.png" id="4_qvg4t"]
 [ext_resource type="Texture2D" uid="uid://3fusydt0xm45" path="res://sprites/cenoura3_ESQUERDA_andando1.png" id="5_7soxk"]
@@ -79,9 +80,11 @@ size = Vector2(11, 12)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tcrox"]
 size = Vector2(26, 28)
 
-[node name="enemy2" type="CharacterBody2D" unique_id=1425868315]
+[node name="enemy3" type="CharacterBody2D" unique_id=1425868315]
 collision_layer = 8
 script = ExtResource("1_bgvey")
+velocidade = 100
+folha_scene = ExtResource("2_f8njh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1216123941]
 scale = Vector2(2, 2)
@@ -97,4 +100,8 @@ shape = SubResource("RectangleShape2D_umrl8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=858138290]
 shape = SubResource("RectangleShape2D_tcrox")
 
+[node name="Timerfolha" type="Timer" parent="." unique_id=313688855]
+wait_time = 7.0
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timerfolha" to="." method="_on_timer_folha_timeout"]

@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://djdx0oxo1ps67"]
+
+[ext_resource type="Script" uid="uid://1181qi58rt8t" path="res://scripts/creditos.gd" id="1_spoww"]
+
+[node name="creditos" type="Node2D" unique_id=1810501188]
+script = ExtResource("1_spoww")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1542285717]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1235411828]
+offset_left = 368.0
+offset_top = 80.0
+offset_right = 832.0
+offset_bottom = 103.0
+text = "CRÉDITOS"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1353182763]
+offset_left = 216.0
+offset_top = 128.0
+offset_right = 856.0
+offset_bottom = 203.0
+text = "Tileset do chão por Buch.
+Comitter e consultor criativo: Jeffrey Kern.
+http://blog-buch.rhcloud.com"
+
+[node name="Label3" type="Label" parent="." unique_id=1337071275]
+offset_left = 216.0
+offset_top = 232.0
+offset_right = 856.0
+offset_bottom = 307.0
+text = "Tileset da moita, logo e sprites dos personagens por Manoela Leite carvalho.
+https://www.instagram.com/a_quaack?igsh=eWdkMXQwOHF0Mm5k"
+
+[node name="Label4" type="Label" parent="." unique_id=2013351895]
+offset_left = 216.0
+offset_top = 312.0
+offset_right = 856.0
+offset_bottom = 387.0
+text = "Tileset do chão da sala do boss por 0x72. 
+https://0x72.itch.io"
+
+[node name="Label5" type="Label" parent="." unique_id=449825832]
+offset_left = 216.0
+offset_top = 392.0
+offset_right = 856.0
+offset_bottom = 467.0
+text = "Tileset paredes da sala do boss por pixel_poem. 
+https://x.com/pixel_poem"
+
+[node name="Button" type="Button" parent="." unique_id=2146538362]
+offset_left = 32.0
+offset_top = 592.0
+offset_right = 160.0
+offset_bottom = 616.0
+text = "VOLTAR"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

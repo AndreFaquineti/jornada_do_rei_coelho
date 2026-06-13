@@ -136,10 +136,12 @@ limit_right = 816
 limit_bottom = 580
 
 [node name="feetSprite2D" type="AnimatedSprite2D" parent="." unique_id=1105965648]
+z_index = 1
 position = Vector2(1, 7)
 sprite_frames = SubResource("SpriteFrames_f1ej7")
 
 [node name="bodySprite2D" type="AnimatedSprite2D" parent="." unique_id=88862752]
+z_index = 1
 scale = Vector2(0.92307687, 1)
 sprite_frames = SubResource("SpriteFrames_jej6c")
 

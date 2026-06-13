@@ -1,6 +1,11 @@
 extends CharacterBody2D
 
 @export var speed = 200
+
+var velocidade = speed
+
+
+	
 @export var pedra_scene : PackedScene
 
 var vida = 3
@@ -32,7 +37,7 @@ func _physics_process(delta):
 
 	direction = direction.normalized()
 
-	velocity = direction * speed
+	velocity = direction * velocidade
 
 	move_and_slide()
 
@@ -115,4 +120,13 @@ func tomar_dano():
 		morrer()
 
 func morrer():
-	get_tree().change_scene_to_file("res://scenes/gameover.tscn")
+	get_tree().call_deferred(
+		"change_scene_to_file",
+		"res://scenes/gameover.tscn"
+	)
+
+func aplicar_lentidao():
+	velocidade = speed * 0.5
+
+func remover_lentidao():
+	velocidade = speed

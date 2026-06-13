@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c4bhffyt8ybp3"]
 
-[ext_resource type="Script" uid="uid://b2a00uubtd0h0" path="res://scripts/enemy_1.gd" id="1_hv1ai"]
+[ext_resource type="Script" uid="uid://bu3iqdlpat1fp" path="res://scripts/enemy2.gd" id="1_hv1ai"]
 [ext_resource type="Texture2D" uid="uid://csbgyb34em1i7" path="res://sprites/cenoura2_FRENTE_andando1.png" id="2_hv1ai"]
 [ext_resource type="Texture2D" uid="uid://bp2q7r66oh8u" path="res://sprites/cenoura2_FRENTE_parado.png" id="3_2mvye"]
 [ext_resource type="Texture2D" uid="uid://dk50xwsivedpw" path="res://sprites/cenoura2_FRENTE_andando2.png" id="4_n88sx"]
@@ -79,6 +79,12 @@ size = Vector2(11, 12)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tcrox"]
 size = Vector2(26, 28)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2mvye"]
+bg_color = Color(0.15686275, 0.15686275, 0.21176471, 0.9137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hv1ai"]
+bg_color = Color(0.7176471, 0, 0.02745098, 1)
+
 [node name="enemy2" type="CharacterBody2D" unique_id=1425868315]
 collision_layer = 8
 script = ExtResource("1_hv1ai")
@@ -86,7 +92,7 @@ script = ExtResource("1_hv1ai")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1216123941]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_yxwnd")
-animation = &"up"
+animation = &"down"
 
 [node name="Collisionenemy" type="CollisionShape2D" parent="." unique_id=954235085]
 scale = Vector2(2, 2)
@@ -96,5 +102,14 @@ shape = SubResource("RectangleShape2D_umrl8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=858138290]
 shape = SubResource("RectangleShape2D_tcrox")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=614202110]
+offset_left = -13.0
+offset_top = -19.0
+offset_right = 14.0
+offset_bottom = -16.0
+theme_override_styles/background = SubResource("StyleBoxFlat_2mvye")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hv1ai")
+show_percentage = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

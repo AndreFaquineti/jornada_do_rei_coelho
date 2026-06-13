@@ -3,6 +3,20 @@
 [ext_resource type="Texture2D" uid="uid://clokun5om7dwv" path="res://sprites/coracao_cheio.png" id="1_ahhtf"]
 [ext_resource type="Script" uid="uid://dyo2qliy4uhav" path="res://scripts/hud.gd" id="1_oo0fn"]
 [ext_resource type="Texture2D" uid="uid://bsm7tldnevkar" path="res://sprites/coracao_vazio.png" id="3_5ysmq"]
+[ext_resource type="Texture2D" uid="uid://dgbj6eiyhweye" path="res://tiles/relogio2.png" id="4_6fi6k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ysmq"]
+bg_color = Color(0, 0, 0, 1)
+shadow_color = Color(0.16309413, 0.3884385, 0.97358316, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fi6k"]
+bg_color = Color(0.2602799, 0.6523699, 0.79577464, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uo2fv"]
+bg_color = Color(0.15686275, 0.15686275, 0.21176471, 0.9137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_047uy"]
+bg_color = Color(0.7176471, 0, 0.02745098, 1)
 
 [node name="HUD" type="Control" unique_id=308204046]
 layout_mode = 3
@@ -17,8 +31,10 @@ heart_empty = ExtResource("3_5ysmq")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=614213175]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 90.0
+offset_top = 47.0
+offset_right = 218.0
+offset_bottom = 87.0
 
 [node name="Heart1" type="TextureRect" parent="HBoxContainer" unique_id=2058455412]
 layout_mode = 2
@@ -34,3 +50,29 @@ expand_mode = 3
 layout_mode = 2
 texture = ExtResource("1_ahhtf")
 expand_mode = 3
+
+[node name="BarraTempo" type="ProgressBar" parent="." unique_id=1872164431]
+layout_mode = 0
+offset_left = 304.0
+offset_right = 704.0
+offset_bottom = 27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_5ysmq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_6fi6k")
+show_percentage = false
+
+[node name="BarraBoss" type="ProgressBar" parent="." unique_id=299166660]
+layout_mode = 0
+offset_left = 312.0
+offset_right = 704.0
+offset_bottom = 27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_uo2fv")
+theme_override_styles/fill = SubResource("StyleBoxFlat_047uy")
+show_percentage = false
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1745467726]
+layout_mode = 0
+offset_left = 264.0
+offset_top = -9.0
+offset_right = 304.0
+offset_bottom = 31.0
+texture = ExtResource("4_6fi6k")

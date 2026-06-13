@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://mxyghi5hrcnw"]
 
 [ext_resource type="Texture2D" uid="uid://rpcwwo2dv328" path="res://tiles/overworld.png" id="1_4wyf3"]
+[ext_resource type="Script" uid="uid://b4hdljg86oyeu" path="res://scripts/fase1.gd" id="1_7r4gi"]
 [ext_resource type="Texture2D" uid="uid://0s3om4nkohcs" path="res://tiles/moita.png" id="2_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://bsyk1n0atr0d1" path="res://scenes/enemy_1.tscn" id="4_71j4m"]
 [ext_resource type="PackedScene" uid="uid://bglod58d8cf4l" path="res://scenes/player.tscn" id="4_k0juu"]
@@ -8,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://c4bhffyt8ybp3" path="res://scenes/enemy_2.tscn" id="5_qfnet"]
 [ext_resource type="PackedScene" uid="uid://d1odu8jfjixj2" path="res://scenes/enemy_3.tscn" id="6_i7141"]
 [ext_resource type="Script" uid="uid://8a8vnlpwgpu8" path="res://scripts/spawner.gd" id="8_4mrxx"]
+[ext_resource type="Texture2D" uid="uid://d01kh3n1cvq1e" path="res://tiles/seta.png" id="10_e3hyu"]
+[ext_resource type="Script" uid="uid://cj7xqewm0qhww" path="res://scripts/seta.gd" id="11_q5onr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qfnet"]
 texture = ExtResource("1_4wyf3")
@@ -565,7 +568,11 @@ physics_layer_0/collision_layer = 4
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_i7141")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e3hyu"]
+size = Vector2(112, 10)
+
 [node name="world" type="Node2D" unique_id=1198236034]
+script = ExtResource("1_7r4gi")
 metadata/_edit_vertical_guides_ = [-46.0]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=917390767]
@@ -585,7 +592,6 @@ tile_map_data = PackedByteArray("AAAFAAAAAgAAAAAAAAAEAAAAAgAAAAAAAAADAAAAAgAAAAA
 tile_set = SubResource("TileSet_71j4m")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="ColorRect/TileMap" unique_id=1152782355]
-visible = false
 tile_map_data = PackedByteArray("AAAGAA8AAAABAAEAAAAHAA8AAAABAAEAAAAIAA8AAAABAAEAAAAOAAkAAAABAAEAAAAOAAgAAAABAAEAAAAOAAcAAAABAAEAAAAIAAAAAAABAAEAAAAHAAAAAAABAAEAAAAGAAAAAAABAAEAAAAAAAcAAAABAAEAAAAAAAkAAAABAAEAAAAAAAgAAAABAAEAAAD//wcAAAAHAAQAAAD//wgAAAAHAAQAAAD//wkAAAAHAAQAAAAPAAcAAAAHAAQAAAAPAAgAAAAHAAQAAAAPAAkAAAAHAAQAAAAGAP//AAAHAAQAAAAHAP//AAAHAAQAAAAIAP//AAAHAAQAAAAGABAAAAAHAAQAAAAHABAAAAAHAAQAAAAIABAAAAAHAAQAAAA=")
 tile_set = SubResource("TileSet_4mrxx")
 
@@ -594,21 +600,21 @@ position = Vector2(576, 336)
 scale = Vector2(3, 3)
 
 [node name="spawner1" type="Node2D" parent="." unique_id=1506739186]
-position = Vector2(335, 344)
+position = Vector2(328, 368)
 script = ExtResource("8_4mrxx")
 inimigos = Array[PackedScene]([ExtResource("4_71j4m"), ExtResource("5_qfnet"), ExtResource("6_i7141")])
 
 [node name="Timer" type="Timer" parent="spawner1" unique_id=926951136]
 
 [node name="spawner2" type="Node2D" parent="." unique_id=1340000738]
-position = Vector2(576, 66)
+position = Vector2(552, 64)
 script = ExtResource("8_4mrxx")
 inimigos = Array[PackedScene]([ExtResource("4_71j4m"), ExtResource("5_qfnet"), ExtResource("6_i7141")])
 
 [node name="Timer" type="Timer" parent="spawner2" unique_id=2130804463]
 
 [node name="spawner3" type="Node2D" parent="." unique_id=997151787]
-position = Vector2(817, 344)
+position = Vector2(816, 320)
 script = ExtResource("8_4mrxx")
 inimigos = Array[PackedScene]([ExtResource("4_71j4m"), ExtResource("5_qfnet"), ExtResource("6_i7141")])
 
@@ -628,28 +634,42 @@ offset_bottom = 648.0
 color = Color(0, 0, 0, 1)
 
 [node name="fundo3" type="ColorRect" parent="CanvasLayer" unique_id=1283186543]
-offset_left = 337.0
-offset_top = -4.0
-offset_right = 825.0
+offset_left = 320.0
+offset_right = 826.0
 offset_bottom = 68.0
 color = Color(0, 0, 0, 1)
 
 [node name="fundo4" type="ColorRect" parent="CanvasLayer" unique_id=2009435256]
-offset_left = 328.0
-offset_top = 576.0
-offset_right = 816.0
+offset_left = 333.0
+offset_top = 580.0
+offset_right = 821.0
 offset_bottom = 648.0
 color = Color(0, 0, 0, 1)
 
 [node name="HUD" parent="CanvasLayer" unique_id=308204046 instance=ExtResource("5_71j4m")]
 anchors_preset = 9
 anchor_right = 0.0
-offset_left = 200.0
-offset_top = 64.0
-offset_right = 200.0
-offset_bottom = 64.0
+offset_left = 88.0
+offset_top = 24.0
+offset_right = 896.0
+offset_bottom = 72.0
 grow_horizontal = 1
+
+[node name="seta" type="Sprite2D" parent="." unique_id=774477930]
+visible = false
+position = Vector2(576, 560)
+scale = Vector2(2, 2)
+texture = ExtResource("10_e3hyu")
+script = ExtResource("11_q5onr")
+
+[node name="saida" type="Area2D" parent="." unique_id=1318463013]
+position = Vector2(576, 584)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="saida" unique_id=1783704022]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_e3hyu")
 
 [connection signal="timeout" from="spawner1/Timer" to="spawner1" method="_on_timer_timeout"]
 [connection signal="timeout" from="spawner2/Timer" to="spawner2" method="_on_timer_timeout"]
 [connection signal="timeout" from="spawner3/Timer" to="spawner3" method="_on_timer_timeout"]
+[connection signal="body_entered" from="saida" to="." method="_on_saida_body_entered"]
