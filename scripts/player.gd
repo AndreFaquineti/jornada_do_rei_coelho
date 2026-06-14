@@ -15,9 +15,12 @@ var pode_atirar = true
 @onready var feet = $feetSprite2D
 @onready var hud = $"../CanvasLayer/HUD"
 
+
 func _ready():
 	await get_tree().process_frame
 	hud.atualizar_vida(vida)
+
+
 
 func _physics_process(delta):
 

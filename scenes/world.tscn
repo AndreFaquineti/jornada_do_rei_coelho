@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://8a8vnlpwgpu8" path="res://scripts/spawner.gd" id="8_4mrxx"]
 [ext_resource type="Texture2D" uid="uid://d01kh3n1cvq1e" path="res://tiles/seta.png" id="10_e3hyu"]
 [ext_resource type="Script" uid="uid://cj7xqewm0qhww" path="res://scripts/seta.gd" id="11_q5onr"]
+[ext_resource type="PackedScene" uid="uid://nliu6w64r8cr" path="res://scenes/tutorial.tscn" id="12_q5onr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qfnet"]
 texture = ExtResource("1_4wyf3")
@@ -597,7 +598,7 @@ tile_set = SubResource("TileSet_4mrxx")
 
 [node name="player" parent="." unique_id=751831201 instance=ExtResource("4_k0juu")]
 position = Vector2(576, 336)
-scale = Vector2(3, 3)
+scale = Vector2(2.6, 2.6)
 
 [node name="spawner1" type="Node2D" parent="." unique_id=1506739186]
 position = Vector2(328, 368)
@@ -649,10 +650,10 @@ color = Color(0, 0, 0, 1)
 [node name="HUD" parent="CanvasLayer" unique_id=308204046 instance=ExtResource("5_71j4m")]
 anchors_preset = 9
 anchor_right = 0.0
-offset_left = 88.0
-offset_top = 24.0
-offset_right = 896.0
-offset_bottom = 72.0
+offset_left = 112.0
+offset_top = 8.0
+offset_right = 920.0
+offset_bottom = 56.0
 grow_horizontal = 1
 
 [node name="seta" type="Sprite2D" parent="." unique_id=774477930]
@@ -668,6 +669,8 @@ position = Vector2(576, 584)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="saida" unique_id=1783704022]
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_e3hyu")
+
+[node name="PopupCard (Control)" parent="." unique_id=927818593 instance=ExtResource("12_q5onr")]
 
 [connection signal="timeout" from="spawner1/Timer" to="spawner1" method="_on_timer_timeout"]
 [connection signal="timeout" from="spawner2/Timer" to="spawner2" method="_on_timer_timeout"]

@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://nliu6w64r8cr"]
+
+[ext_resource type="Script" uid="uid://b8xwcfiqx8urv" path="res://scenes/textbox.gd" id="1_8ho6b"]
+[ext_resource type="FontFile" uid="uid://bnskowpp4ijra" path="res://fonts/Adventurer.ttf" id="1_c13y7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7v7x"]
+bg_color = Color(0.12832604, 0.12832604, 0.12832604, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ho6b"]
+
+[node name="Textbox" type="CanvasLayer" unique_id=2016035590]
+script = ExtResource("1_8ho6b")
+
+[node name="TextboxContainer" type="MarginContainer" parent="." unique_id=1784454340]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 275.0
+offset_top = -209.0
+offset_right = -277.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Panel" type="Panel" parent="TextboxContainer" unique_id=715845357]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m7v7x")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextboxContainer" unique_id=549317468]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextboxContainer/MarginContainer" unique_id=984058987]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer" unique_id=630141162]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_c13y7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxFlat_8ho6b")
+text = "Yeah. Kinda."
+autowrap_mode = 1
+clip_text = true
+
+[node name="endSymbol" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer" unique_id=1310819322]
+custom_minimum_size = Vector2(24, 20)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+size_flags_stretch_ratio = 0.04
+theme_override_fonts/font = ExtResource("1_c13y7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxFlat_8ho6b")
+text = "↵"
+horizontal_alignment = 2
+vertical_alignment = 2
+clip_text = true
