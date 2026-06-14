@@ -86,7 +86,9 @@ bg_color = Color(0.15686275, 0.15686275, 0.21176471, 0.9137255)
 bg_color = Color(0.7176471, 0, 0.02745098, 1)
 
 [node name="enemy2" type="CharacterBody2D" unique_id=1425868315]
+z_index = 1
 collision_layer = 8
+collision_mask = 17
 script = ExtResource("1_hv1ai")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1216123941]

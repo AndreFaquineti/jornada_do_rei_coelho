@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bno7s7fn01pav"]
+
+[ext_resource type="Texture2D" uid="uid://b7gpaul2aaww3" path="res://sprites/coroa.png" id="1_j4ugw"]
+[ext_resource type="Script" uid="uid://cywmeiqtaqnpv" path="res://scripts/coroa.gd" id="1_lnu5l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu5l"]
+size = Vector2(10, 8)
+
+[node name="coroa" type="Area2D" unique_id=1317902299]
+scale = Vector2(2, 2)
+script = ExtResource("1_lnu5l")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1111581242]
+texture = ExtResource("1_j4ugw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=47913066]
+shape = SubResource("RectangleShape2D_lnu5l")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

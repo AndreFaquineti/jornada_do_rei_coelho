@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://cbjxtfkhvxm3n"]
 
 [ext_resource type="Texture2D" uid="uid://dgki81its0tk7" path="res://sprites/boss_FRENTE_andando1.png" id="2_8eiau"]
+[ext_resource type="PackedScene" uid="uid://csfonggob63am" path="res://scenes/espinhoaviso.tscn" id="2_vn2fc"]
+[ext_resource type="PackedScene" uid="uid://kn5nrb2haanm" path="res://scenes/vilao.tscn" id="3_gqd3i"]
 [ext_resource type="Texture2D" uid="uid://dnkrxnd4umaj" path="res://sprites/boss_FRENTE_parado.png" id="3_vn2fc"]
 [ext_resource type="Texture2D" uid="uid://btj0ymu3mvpb8" path="res://sprites/boss_FRENTE_andando2.png" id="4_gqd3i"]
+[ext_resource type="PackedScene" uid="uid://bno7s7fn01pav" path="res://scenes/coroa.tscn" id="4_mautr"]
 [ext_resource type="Texture2D" uid="uid://c1lpukm6adoii" path="res://sprites/boss_ESQUERDA_andando1.png" id="5_mautr"]
 [ext_resource type="Texture2D" uid="uid://dtbk76yqabobd" path="res://sprites/boss_ESQUERDA_parado.png" id="6_ho3mf"]
 [ext_resource type="Texture2D" uid="uid://ccinoy6o2eqdf" path="res://sprites/boss_ESQUERDA_andando2.png" id="7_7apjh"]
@@ -80,8 +83,13 @@ size = Vector2(23.5, 22)
 size = Vector2(54, 52)
 
 [node name="boss" type="CharacterBody2D" unique_id=1425868315]
-collision_layer = 8
+z_index = 1
+collision_layer = 16
+collision_mask = 9
 script = ExtResource("14_vn2fc")
+aviso_scene = ExtResource("2_vn2fc")
+vilao_scene = ExtResource("3_gqd3i")
+coroa_scene = ExtResource("4_mautr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1216123941]
 scale = Vector2(2, 2)
@@ -99,9 +107,14 @@ shape = SubResource("RectangleShape2D_umrl8")
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_tcrox")
 
-[node name="SkillTimer" type="Timer" parent="." unique_id=1324872487]
+[node name="espinhoTimer" type="Timer" parent="." unique_id=1324872487]
 wait_time = 4.0
 autostart = true
 
+[node name="enemyTimer" type="Timer" parent="." unique_id=810354321]
+wait_time = 10.0
+autostart = true
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="timeout" from="SkillTimer" to="." method="_on_skill_timer_timeout"]
+[connection signal="timeout" from="espinhoTimer" to="." method="_on_espinho_timer_timeout"]
+[connection signal="timeout" from="enemyTimer" to="." method="_on_enemy_timer_timeout"]

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bc2vugsmpj7cs" path="res://scripts/corredor.gd" id="1_5nee4"]
 [ext_resource type="Texture2D" uid="uid://rpcwwo2dv328" path="res://tiles/overworld.png" id="2_4fivv"]
 [ext_resource type="Texture2D" uid="uid://0s3om4nkohcs" path="res://tiles/moita.png" id="3_r6juf"]
+[ext_resource type="Texture2D" uid="uid://v2gpaihpvhwn" path="res://tiles/cactos.png" id="4_4fivv"]
 [ext_resource type="PackedScene" uid="uid://bglod58d8cf4l" path="res://scenes/player.tscn" id="4_jcraj"]
 [ext_resource type="PackedScene" uid="uid://cvgb8dg7x0g30" path="res://scenes/hud.tscn" id="5_bms7j"]
 
@@ -196,8 +197,14 @@ texture = ExtResource("3_r6juf")
 0:0/0 = 0
 1:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r6juf"]
+texture = ExtResource("4_4fivv")
+texture_region_size = Vector2i(14, 16)
+0:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_e2rsl"]
 sources/0 = SubResource("TileSetAtlasSource_k83ae")
+sources/1 = SubResource("TileSetAtlasSource_r6juf")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rbtfv"]
 size = Vector2(160, 10)
@@ -223,7 +230,7 @@ tile_map_data = PackedByteArray("AAAAAAcAAAABAAQAAAAAAAkAAAABAAQAAAAAAAgAAAABAAQ
 tile_set = SubResource("TileSet_k83ae")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="ColorRect/TileMap" unique_id=883004538]
-tile_map_data = PackedByteArray("AAADAA8AAAAAAAAAAAADAA4AAAAAAAAAAAADAA0AAAAAAAAAAAADAAwAAAAAAAAAAAADAAsAAAAAAAAAAAADAAoAAAAAAAAAAAADAAkAAAAAAAAAAAADAAgAAAAAAAAAAAADAAcAAAAAAAAAAAADAAYAAAAAAAAAAAADAAUAAAAAAAAAAAADAAQAAAAAAAAAAAADAAMAAAAAAAAAAAADAAIAAAAAAAAAAAADAAEAAAAAAAAAAAADAAAAAAAAAAAAAAD//wAAAAAAAAAAAAD//wEAAAAAAAAAAAD//wIAAAAAAAAAAAD//wMAAAAAAAAAAAD//wQAAAAAAAAAAAD//wUAAAAAAAAAAAD//wYAAAAAAAAAAAD//wcAAAAAAAAAAAD//wgAAAAAAAAAAAD//wkAAAAAAAAAAAD//woAAAAAAAAAAAD//wsAAAAAAAAAAAD//wwAAAAAAAAAAAD//w0AAAAAAAAAAAD//w4AAAAAAAAAAAD//w8AAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAADAA8AAQAAAAAAAAADAA4AAQAAAAAAAAADAA0AAQAAAAAAAAADAAwAAQAAAAAAAAADAAsAAQAAAAAAAAADAAoAAQAAAAAAAAADAAkAAQAAAAAAAAADAAgAAQAAAAAAAAADAAcAAQAAAAAAAAADAAYAAQAAAAAAAAADAAUAAQAAAAAAAAADAAQAAQAAAAAAAAADAAMAAQAAAAAAAAADAAIAAQAAAAAAAAADAAEAAQAAAAAAAAADAAAAAQAAAAAAAAD//wAAAQAAAAAAAAD//wEAAQAAAAAAAAD//wIAAQAAAAAAAAD//wMAAQAAAAAAAAD//wQAAQAAAAAAAAD//wUAAQAAAAAAAAD//wYAAQAAAAAAAAD//wcAAQAAAAAAAAD//wgAAQAAAAAAAAD//wkAAQAAAAAAAAD//woAAQAAAAAAAAD//wsAAQAAAAAAAAD//wwAAQAAAAAAAAD//w0AAQAAAAAAAAD//w4AAQAAAAAAAAD//w8AAQAAAAAAAAD/////AQAAAAAAAAD///7/AQAAAAAAAAD///3/AQAAAAAAAAAEAAUAAQAAAAAAAAAEAAYAAQAAAAAAAAAEAAcAAQAAAAAAAAAEAAgAAQAAAAAAAAAEAAkAAQAAAAAAAAAEAAoAAQAAAAAAAAAEAAsAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_e2rsl")
 
 [node name="player" parent="." unique_id=751831201 instance=ExtResource("4_jcraj")]

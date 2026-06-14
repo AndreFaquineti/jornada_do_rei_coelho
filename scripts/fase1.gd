@@ -48,9 +48,6 @@ func fim_da_fase():
 	if nome_fase == "fase4":
 		$spawner4/Timer.stop()
 
-	for inimigo in get_tree().get_nodes_in_group("inimigos"):
-		inimigo.queue_free()
-
 	$seta.visible = true
 	$seta.piscando = true
 	$saida.monitoring = true

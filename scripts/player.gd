@@ -3,21 +3,23 @@ extends CharacterBody2D
 @export var speed = 200
 
 var velocidade = speed
-
+var pode_levar_dano = true
 
 	
 @export var pedra_scene : PackedScene
 
 var vida = 3
 var pode_atirar = true
-
+var tem_coroa = false
 @onready var body = $bodySprite2D
 @onready var feet = $feetSprite2D
 @onready var hud = $"../CanvasLayer/HUD"
+@onready var coroa =$coroa
 
 func _ready():
 	await get_tree().process_frame
 	hud.atualizar_vida(vida)
+	coroa.visible = false
 
 func _physics_process(delta):
 
@@ -47,6 +49,10 @@ func _physics_process(delta):
 	if direction == Vector2.ZERO:
 
 		feet.play("default")
+		if tem_coroa == false:
+			body.play("default")
+		else:
+			body.play("down2")
 
 		return
 
@@ -55,18 +61,38 @@ func _physics_process(delta):
 
 	# DIREÇÕES
 	if direction.x > 0:
-		body.play("right")
-
+		if tem_coroa == false:
+			body.play("right")
+		else:
+			body.play("right2")
+			
 	elif direction.x < 0:
-		body.play("left")
+		if tem_coroa == false:
+			body.play("left")
+		else:
+			body.play("left2")
 
 	elif direction.y > 0:
-		body.play("down")
-
+		if tem_coroa == false:
+			body.play("down")
+		else:
+			body.play("down2")
+			
 	elif direction.y < 0:
-		body.play("up")
+		if tem_coroa == false:
+			body.play("up")
+		else:
+			body.play("up2")
 
+func pegar_coroa():
+	tem_coroa = true
+	$"../Label".visible = true
 
+	await get_tree().create_timer(5.0).timeout
+
+	get_tree().change_scene_to_file(
+		"res://scenes/menu.tscn"
+	)
 func controlar_tiro():
 
 	if not pode_atirar:
@@ -109,12 +135,22 @@ func atirar(direcao):
 
 func tomar_dano():
 
-	vida -= 1
+	if not pode_levar_dano:
+		return
 
+	pode_levar_dano = false
+
+	vida -= 1
 	if vida < 0:
 		vida = 0
 
+	body.modulate = Color(1, 0, 0)
 	hud.atualizar_vida(vida)
+
+	await get_tree().create_timer(0.5).timeout
+
+	body.modulate = Color(1, 1, 1)
+	pode_levar_dano = true
 
 	if vida == 0:
 		morrer()

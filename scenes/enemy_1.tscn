@@ -80,7 +80,9 @@ size = Vector2(11, 12)
 size = Vector2(26, 28)
 
 [node name="enemy1" type="CharacterBody2D" unique_id=1425868315]
+z_index = 1
 collision_layer = 8
+collision_mask = 17
 script = ExtResource("1_tcrox")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1216123941]

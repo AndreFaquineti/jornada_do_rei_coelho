@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://csfonggob63am"]
+
+[ext_resource type="Texture2D" uid="uid://bvngh7iogiv3n" path="res://sprites/espinhoaviso.png" id="1_27mvu"]
+[ext_resource type="Script" uid="uid://6ci5r6qnupi" path="res://scripts/espinhoaviso.gd" id="1_gycu6"]
+[ext_resource type="PackedScene" uid="uid://7om24qd2rloj" path="res://scenes/espinho.tscn" id="2_4j77j"]
+
+[node name="espinhoaviso" type="Node2D" unique_id=1730184559]
+scale = Vector2(2, 2)
+script = ExtResource("1_gycu6")
+espinho_scene = ExtResource("2_4j77j")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=503071750]
+scale = Vector2(2, 2)
+texture = ExtResource("1_27mvu")

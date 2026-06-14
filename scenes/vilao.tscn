@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://kn5nrb2haanm"]
+
+[ext_resource type="Script" uid="uid://bl3cslqh0oo4c" path="res://scripts/vilao.gd" id="1_cyd7i"]
+[ext_resource type="Texture2D" uid="uid://cwksjak2tg6gq" path="res://sprites/vilao_FRENTE_andando1.png" id="2_cyd7i"]
+[ext_resource type="Texture2D" uid="uid://hipccojhkr8t" path="res://sprites/vilao_FRENTE_parado.png" id="3_dcd4q"]
+[ext_resource type="Texture2D" uid="uid://bikbmu6nvcsjn" path="res://sprites/vilao_FRENTE_andando2.png" id="4_jvc63"]
+[ext_resource type="Texture2D" uid="uid://chsrov4r7e8yo" path="res://sprites/vilao_ESQUERDA_andando1.png" id="5_2m5qy"]
+[ext_resource type="Texture2D" uid="uid://dyy5ac82fv85o" path="res://sprites/vilao_ESQUERDA_parado.png" id="6_2phj1"]
+[ext_resource type="Texture2D" uid="uid://ck86rwqb0m7n3" path="res://sprites/vilao_ESQUERDA_andando2.png" id="7_4ukfs"]
+[ext_resource type="Texture2D" uid="uid://b08mcuu5g6gch" path="res://sprites/vilao_DIREITA_andando1.png" id="8_8u5ma"]
+[ext_resource type="Texture2D" uid="uid://dg3hdpu0hhqxf" path="res://sprites/vilao_DIREITA_parado.png" id="9_3wubq"]
+[ext_resource type="Texture2D" uid="uid://cypdal7vacmdg" path="res://sprites/vilao_DIREITA_andando2.png" id="10_1jc4q"]
+[ext_resource type="Texture2D" uid="uid://by7qrrui1op47" path="res://sprites/vilao_COSTAS_andando1.png" id="11_15wdm"]
+[ext_resource type="Texture2D" uid="uid://by2hhl3u66qnf" path="res://sprites/vilao_COSTAS_parado.png" id="12_r8xi2"]
+[ext_resource type="Texture2D" uid="uid://yu0nov63avh0" path="res://sprites/vilao_COSTAS_andando2.png" id="13_2c4am"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aayke"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cyd7i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dcd4q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jvc63")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_2m5qy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2phj1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4ukfs")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_8u5ma")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3wubq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_1jc4q")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_15wdm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_r8xi2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_2c4am")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oprun"]
+size = Vector2(10, 8)
+
+[node name="vilao" type="CharacterBody2D" unique_id=751831201]
+scale = Vector2(2, 2)
+collision_mask = 5
+script = ExtResource("1_cyd7i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=423104403]
+position = Vector2(1, 7)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_aayke")
+animation = &"right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1546186019]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_oprun")

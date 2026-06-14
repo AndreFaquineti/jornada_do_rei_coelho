@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
 @export var velocidade = 60
-
+var distancia_ataque = 18.0
 var vida = 3
 var vida_maxima = 3
-
+var pode_dar_dano = true
 @onready var barra_vida = $ProgressBar
 @onready var player = $"../player"
 @onready var body = $AnimatedSprite2D
@@ -17,6 +17,7 @@ var tempo_alvo_aleatorio = 0.0
 var direcao_atual = "down"
 
 func _ready():
+	add_to_group("inimigos")
 	barra_vida.max_value = vida_maxima
 	barra_vida.value = vida
 
@@ -44,54 +45,51 @@ func _physics_process(delta):
 				body.play("up")
 
 	else:
-		# Atualiza o alvo aleatório de tempos em tempos
-		if tempo_alvo_aleatorio <= 0:
-			tempo_alvo_aleatorio = randf_range(0.5, 1.5)
 
-			alvo_aleatorio = player.global_position + Vector2(
-				randf_range(-64, 64),
-				randf_range(-64, 64)
-			)
+		var dist_player = player.global_position.distance_to(global_position)
+
+		if dist_player <= distancia_ataque:
+			velocity = Vector2.ZERO
 		else:
-			tempo_alvo_aleatorio -= delta
+			if tempo_alvo_aleatorio <= 0:
+				tempo_alvo_aleatorio = randf_range(0.5, 1.5)
 
-		var diferenca = alvo_aleatorio - global_position
-		var margem = 16
-
-		# Só troca para horizontal se a diferença for significativa
-		if abs(diferenca.x) > abs(diferenca.y) + margem:
-			if diferenca.x > 0:
-				direcao_atual = "right"
+				alvo_aleatorio = player.global_position + Vector2(
+					randf_range(-64, 64),
+					randf_range(-64, 64)
+				)
 			else:
-				direcao_atual = "left"
+				tempo_alvo_aleatorio -= delta
 
-		# Só troca para vertical se a diferença for significativa
-		elif abs(diferenca.y) > abs(diferenca.x) + margem:
-			if diferenca.y > 0:
-				direcao_atual = "down"
-			else:
-				direcao_atual = "up"
+			var diferenca = alvo_aleatorio - global_position
+			var margem = 16
 
-		match direcao_atual:
-			"right":
-				velocity = Vector2.RIGHT * velocidade
-				if body.animation != "right":
-					body.play("right")
+			if abs(diferenca.x) > abs(diferenca.y) + margem:
+				direcao_atual = "right" if diferenca.x > 0 else "left"
 
-			"left":
-				velocity = Vector2.LEFT * velocidade
-				if body.animation != "left":
-					body.play("left")
+			elif abs(diferenca.y) > abs(diferenca.x) + margem:
+				direcao_atual = "down" if diferenca.y > 0 else "up"
 
-			"down":
-				velocity = Vector2.DOWN * velocidade
-				if body.animation != "down":
-					body.play("down")
+			match direcao_atual:
+				"right":
+					velocity = Vector2.RIGHT * velocidade
+					if body.animation != "right":
+						body.play("right")
 
-			"up":
-				velocity = Vector2.UP * velocidade
-				if body.animation != "up":
-					body.play("up")
+				"left":
+					velocity = Vector2.LEFT * velocidade
+					if body.animation != "left":
+						body.play("left")
+
+				"down":
+					velocity = Vector2.DOWN * velocidade
+					if body.animation != "down":
+						body.play("down")
+
+				"up":
+					velocity = Vector2.UP * velocidade
+					if body.animation != "up":
+						body.play("up")
 
 	move_and_slide()
 
@@ -117,8 +115,25 @@ func _physics_process(delta):
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	if !pode_dar_dano:
+		return
+
 	if body.has_method("tomar_dano"):
+
+		pode_dar_dano = false
+
 		body.tomar_dano()
+
+		# Recuo do inimigo
+		var direcao_recuo = (
+			global_position - body.global_position
+		).normalized()
+
+		global_position += direcao_recuo * 40
+
+		await get_tree().create_timer(1.0).timeout
+
+		pode_dar_dano = true
 
 
 func tomar_dano():

@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var folha_scene: PackedScene
 
 var vida = 1
-
+var pode_dar_dano = true
 @onready var body = $AnimatedSprite2D
 @onready var timer_folha = $Timerfolha
 
@@ -16,7 +16,7 @@ func _ready():
 	randomize()
 	escolher_nova_direcao()
 	timer_folha.start()
-
+	add_to_group("inimigos")
 
 func _physics_process(delta):
 
@@ -91,10 +91,27 @@ func _on_timer_folha_timeout():
 	get_tree().current_scene.add_child(folha)
 
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(body: Node2D) -> void:
+
+	if !pode_dar_dano:
+		return
 
 	if body.has_method("tomar_dano"):
+
+		pode_dar_dano = false
+
 		body.tomar_dano()
+
+		# Recuo do inimigo
+		var direcao_recuo = (
+			global_position - body.global_position
+		).normalized()
+
+		global_position += direcao_recuo * 40
+
+		await get_tree().create_timer(1.0).timeout
+
+		pode_dar_dano = true
 
 
 func tomar_dano():
