@@ -16,10 +16,13 @@ var tem_coroa = false
 @onready var hud = $"../CanvasLayer/HUD"
 @onready var coroa =$coroa
 
+
 func _ready():
 	await get_tree().process_frame
 	hud.atualizar_vida(vida)
 	coroa.visible = false
+
+
 
 func _physics_process(delta):
 

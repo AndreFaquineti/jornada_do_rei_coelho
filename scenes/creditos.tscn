@@ -51,6 +51,14 @@ offset_bottom = 467.0
 text = "Tileset paredes da sala do boss por pixel_poem. 
 https://x.com/pixel_poem"
 
+[node name="Label6" type="Label" parent="." unique_id=1177949087]
+offset_left = 216.0
+offset_top = 474.0
+offset_right = 856.0
+offset_bottom = 523.0
+text = "Fonte Adventurer por Brian J Smith licença : (Creative Commons Attribution)
+www.pentacom.jp/pentacom/bitfontmaker2/gallery/?id=195aaaaaaaaa"
+
 [node name="Button" type="Button" parent="." unique_id=2146538362]
 offset_left = 32.0
 offset_top = 592.0
