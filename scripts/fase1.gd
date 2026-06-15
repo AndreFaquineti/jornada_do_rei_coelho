@@ -8,7 +8,7 @@ var fase_concluida = false
 @onready var hud = $CanvasLayer/HUD
 var cena
 
-func _ready():
+func _ready():	
 	tempo_restante = tempo_maximo
 
 	var nome_fase = get_tree().current_scene.name

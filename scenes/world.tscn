@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://8a8vnlpwgpu8" path="res://scripts/spawner.gd" id="8_4mrxx"]
 [ext_resource type="Texture2D" uid="uid://d01kh3n1cvq1e" path="res://tiles/seta.png" id="10_e3hyu"]
 [ext_resource type="Script" uid="uid://cj7xqewm0qhww" path="res://scripts/seta.gd" id="11_q5onr"]
-[ext_resource type="PackedScene" uid="uid://nliu6w64r8cr" path="res://scenes/tutorial.tscn" id="12_q5onr"]
+[ext_resource type="PackedScene" uid="uid://c46h6urqb1yw1" path="res://scenes/tutorial.tscn" id="12_q5onr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qfnet"]
 texture = ExtResource("1_4wyf3")
@@ -670,7 +670,7 @@ position = Vector2(576, 584)
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_e3hyu")
 
-[node name="PopupCard (Control)" parent="." unique_id=927818593 instance=ExtResource("12_q5onr")]
+[node name="TutorialBox" parent="." unique_id=2016035590 instance=ExtResource("12_q5onr")]
 
 [connection signal="timeout" from="spawner1/Timer" to="spawner1" method="_on_timer_timeout"]
 [connection signal="timeout" from="spawner2/Timer" to="spawner2" method="_on_timer_timeout"]

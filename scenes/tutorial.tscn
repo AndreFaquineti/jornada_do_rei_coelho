@@ -1,29 +1,147 @@
-[gd_scene format=3 uid="uid://nliu6w64r8cr"]
+[gd_scene format=4 uid="uid://c46h6urqb1yw1"]
 
-[ext_resource type="Script" uid="uid://b8xwcfiqx8urv" path="res://scenes/textbox.gd" id="1_8ho6b"]
-[ext_resource type="FontFile" uid="uid://bnskowpp4ijra" path="res://fonts/Adventurer.ttf" id="1_c13y7"]
+[ext_resource type="Texture2D" uid="uid://bnydmfbbnojv0" path="res://tiles/teclado.png" id="1_6yjpi"]
+[ext_resource type="Script" uid="uid://dwncn1s2edqpl" path="res://scenes/tutorial.gd" id="1_gbqnl"]
+[ext_resource type="Texture2D" uid="uid://coienv5uplix5" path="res://sprites/frente.png" id="2_gbqnl"]
+[ext_resource type="Texture2D" uid="uid://be7dywdd0cof3" path="res://sprites/costas.png" id="3_ckvwl"]
+[ext_resource type="Texture2D" uid="uid://clfabycxsneew" path="res://sprites/esquerda.png" id="4_nlqja"]
+[ext_resource type="Texture2D" uid="uid://cvyrifd6pnqc8" path="res://sprites/direita.png" id="5_0epgs"]
+[ext_resource type="Texture2D" uid="uid://dtvokfnns1v7j" path="res://sprites/pedra.png" id="6_g2equ"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7v7x"]
-bg_color = Color(0.12832604, 0.12832604, 0.12832604, 1)
+bg_color = Color(0.07, 0.07, 0.07, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ho6b"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbcdj"]
+texture = ExtResource("1_6yjpi")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+5:12/0 = 0
+6:12/0 = 0
+7:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
 
-[node name="Textbox" type="CanvasLayer" unique_id=2016035590]
-script = ExtResource("1_8ho6b")
+[sub_resource type="TileSet" id="TileSet_ej4tf"]
+sources/0 = SubResource("TileSetAtlasSource_tbcdj")
 
-[node name="TextboxContainer" type="MarginContainer" parent="." unique_id=1784454340]
-anchors_preset = 12
+[node name="TutorialBox" type="CanvasLayer" unique_id=2016035590]
+script = ExtResource("1_gbqnl")
+
+[node name="TutorialContainer" type="MarginContainer" parent="." unique_id=1784454340]
+anchors_preset = -1
+anchor_left = 0.68100005
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.68100005
 anchor_bottom = 1.0
-offset_left = 275.0
-offset_top = -209.0
-offset_right = -277.0
-offset_bottom = -9.0
+offset_left = -448.5121
+offset_top = -144.0
+offset_right = 31.487915
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/margin_left = 16
@@ -31,41 +149,84 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="Panel" type="Panel" parent="TextboxContainer" unique_id=715845357]
+[node name="Panel" type="Panel" parent="TutorialContainer" unique_id=715845357]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_m7v7x")
 
-[node name="MarginContainer" type="MarginContainer" parent="TextboxContainer" unique_id=549317468]
+[node name="MarginContainer" type="MarginContainer" parent="TutorialContainer" unique_id=549317468]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TextboxContainer/MarginContainer" unique_id=984058987]
-layout_mode = 2
+[node name="TileMapLayer" type="TileMapLayer" parent="TutorialContainer/MarginContainer" unique_id=430045535]
+position = Vector2(-312, -488)
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAAKABEAAAAAAAIAAAALABAAAAAGAAQAAAALABEAAAACAAQAAAAMABEAAAADAAIAAAATABEAAAADAAAAAAASABEAAAABAAAAAAARABEAAAACAAAAAAASABAAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_ej4tf")
 
-[node name="Label" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer" unique_id=630141162]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("1_c13y7")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/focus = SubResource("StyleBoxFlat_8ho6b")
-text = "Yeah. Kinda."
-autowrap_mode = 1
-clip_text = true
+[node name="Frente" type="Sprite2D" parent="TutorialContainer/MarginContainer" unique_id=333350347]
+position = Vector2(160.00003, 72)
+scale = Vector2(1.659, 2)
+texture = ExtResource("2_gbqnl")
 
-[node name="endSymbol" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer" unique_id=1310819322]
-custom_minimum_size = Vector2(24, 20)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-size_flags_stretch_ratio = 0.04
-theme_override_fonts/font = ExtResource("1_c13y7")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/focus = SubResource("StyleBoxFlat_8ho6b")
-text = "↵"
-horizontal_alignment = 2
-vertical_alignment = 2
-clip_text = true
+[node name="Costas" type="Sprite2D" parent="TutorialContainer/MarginContainer" unique_id=13184824]
+position = Vector2(160, 40)
+scale = Vector2(1.659, 2)
+texture = ExtResource("3_ckvwl")
+
+[node name="Esquerda" type="Sprite2D" parent="TutorialContainer/MarginContainer" unique_id=195434409]
+position = Vector2(128, 70)
+scale = Vector2(1.659, 2)
+texture = ExtResource("4_nlqja")
+
+[node name="Direita" type="Sprite2D" parent="TutorialContainer/MarginContainer" unique_id=1547711691]
+position = Vector2(192, 72)
+scale = Vector2(1.659, 2)
+texture = ExtResource("5_0epgs")
+
+[node name="Frente2" type="Sprite2D" parent="TutorialContainer/MarginContainer" unique_id=885564348]
+position = Vector2(395.25, 58.5)
+scale = Vector2(2, 2)
+texture = ExtResource("2_gbqnl")
+
+[node name="Pedra" type="Sprite2D" parent="TutorialContainer/MarginContainer" unique_id=1442784775]
+position = Vector2(395.25, 98.5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_g2equ")
+
+[node name="Pedra2" type="Sprite2D" parent="TutorialContainer/MarginContainer" unique_id=995870569]
+position = Vector2(355.25, 58.5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_g2equ")
+
+[node name="Pedra3" type="Sprite2D" parent="TutorialContainer/MarginContainer" unique_id=1419112526]
+position = Vector2(435.25006, 58.5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_g2equ")
+
+[node name="Pedra4" type="Sprite2D" parent="TutorialContainer/MarginContainer" unique_id=1507437255]
+position = Vector2(395.25, 18.5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_g2equ")
+
+[node name="Pedra5" type="Sprite2D" parent="TutorialContainer/MarginContainer" unique_id=2015047607]
+position = Vector2(371.25006, 82.5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_g2equ")
+
+[node name="Pedra6" type="Sprite2D" parent="TutorialContainer/MarginContainer" unique_id=519539692]
+position = Vector2(371.25, 34.5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_g2equ")
+
+[node name="Pedra7" type="Sprite2D" parent="TutorialContainer/MarginContainer" unique_id=1211578442]
+position = Vector2(419.25, 82.5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_g2equ")
+
+[node name="Pedra8" type="Sprite2D" parent="TutorialContainer/MarginContainer" unique_id=900661801]
+position = Vector2(419.25, 34.5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_g2equ")

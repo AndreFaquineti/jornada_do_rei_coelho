@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://83fipe4vaege"]
+
+[ext_resource type="Script" uid="uid://j8p4xa8dv724" path="res://scenes/intro.gd" id="1_ioskq"]
+[ext_resource type="Texture2D" uid="uid://bwkb153u3nnf7" path="res://sprites/cidade2.png" id="2_yjqpq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yjqpq"]
+bg_color = Color(0.12832604, 0.12832604, 0.12832604, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="Intro" type="Node2D" unique_id=2096408247]
+script = ExtResource("1_ioskq")
+
+[node name="Cidade2" type="Sprite2D" parent="." unique_id=30088466]
+position = Vector2(576, 319.99997)
+scale = Vector2(0.6, 0.5925926)
+texture = ExtResource("2_yjqpq")
+
+[node name="TextboxContainer" type="MarginContainer" parent="." unique_id=1493124483]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 450.0
+offset_top = 590.0
+offset_right = 718.0
+offset_bottom = 649.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Panel" type="Panel" parent="TextboxContainer" unique_id=1943768348]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yjqpq")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextboxContainer" unique_id=1049826468]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextboxContainer/MarginContainer" unique_id=942553094]
+layout_mode = 2
+
+[node name="instrucao" type="Label" parent="TextboxContainer/MarginContainer" unique_id=1132702591]
+layout_mode = 2
+text = "Aperte Enter para avançar"

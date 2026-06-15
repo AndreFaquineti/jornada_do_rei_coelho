@@ -17,11 +17,6 @@ var tween: Tween
 func _ready() -> void:
 	print("Estado inicial: state.READY")
 	hideTextbox()
-	queueText("Texto novo para a textbox que eu acabei de criar.")
-	queueText("Segundo texto da fila.")
-	queueText("Outro texto da fila.Outro texto da fila.Outro texto da fila.Outro texto da fila.")
-	queueText("Quarto Texto novo para a textbox que eu já criei a muito tempo.")
-	queueText("Aff, cansei de criar textos de exemplo mano.")
 
 func _process(delta):
 	match current_state:

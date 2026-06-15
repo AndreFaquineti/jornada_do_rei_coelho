@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 musica="*uid://beqc4cbhkk6lq"
+Textbox="*uid://nliu6w64r8cr"
 
 [input]
 
